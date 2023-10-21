@@ -20,11 +20,11 @@ import image19 from "./src/assets/dogs.png"
 import image20 from "./src/assets/asia24.png"
 import image21 from "./src/assets/tasty tour.png"
 import image22 from "./src/assets/darker.png"
-import image23 from "./src/assets/unresloved casess.png"
+import image23 from "./src/assets/unresloved casees.png"
 import image24 from "./src/assets/mission saturn.png"
 
 
-const cardsObj = [
+const data = [
   {
     name: "The Great Lands",
     year: "2019",
@@ -216,55 +216,7 @@ const cardsObj = [
     category2: "PG",
     img: image24,
     marked: false,
-  },
-  {
-    name: "No Land Beyond",
-    year: "2019",
-    category: "Movie",
-    category2: "PG",
-    img: image25,
-    imgCarousel: imgCarousel1,
-    marked: false,
-    carousel: true,
-  },
-  {
-    name: "Bottom Gear",
-    year: "2021",
-    category: "Movie",
-    category2: "PG",
-    img: image26,
-    imgCarousel: imgCarousel2,
-    marked: false,
-    carousel: true,
-  },
-  {
-    name: "Undiscovered Cities",
-    year: "2019",
-    category: "TV Series",
-    category2: "E",
-    img: image27,
-    imgCarousel: imgCarousel3,
-    marked: false,
-    carousel: true,
-  },
-  {
-    name: "1998",
-    year: "2021",
-    category: "Movie",
-    category2: "18+",
-    img: image28,
-    imgCarousel: imgCarousel4,
-    marked: false,
-    carousel: true,
-  },
-  {
-    name: "Dark Side Of The Moon",
-    year: "2018",
-    category: "TV Series",
-    category2: "PG",
-    img: image29,
-    imgCarousel: imgCarousel5,
-    marked: false,
-    carousel: true,
-  },
+  }
 ];
+
+export default data;
