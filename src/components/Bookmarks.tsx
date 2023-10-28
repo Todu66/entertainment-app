@@ -12,7 +12,7 @@ const SavedMovies: React.FC<SavedMoviesProps> = ({ savedMovies }) => {
   return (
     <div className="text-[#fff]">
       {savedMovies.map((movie, index) => (
-        <div key={index}>
+        <div className="mb-3" key={index}>
           <img src={movie.img} alt={movie.name} />
           <h2>{movie.name}</h2>
           <p>Year: {movie.year}</p>
