@@ -1,25 +1,47 @@
 import React, { useState } from "react";
-import { Routes, Route, Link } from "react-router-dom"; // Use Routes and Route from react-router-dom
+import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Recommended from "./components/Recommended";
-import SavedMovies from "./components/Bookmarks"; // Import the SavedMovies component
-import "./index.css"
+import SavedMovies from "./components/Bookmarks";
+import data from "../data"; // Import your default movie data
+import "./index.css";
 
-// ... (Movie and App component declarations remain the same)
+interface Movie {
+  name: string;
+  year: string;
+  category: string;
+  category2: string;
+  img: string;
+}
 
 function App() {
-  const [savedMovies, setSavedMovies] = useState<Movie[]>([]);
+  const [movies, setMovies] = useState<Movie[]>([]);
+  const [filteredData, setFilteredData] = useState<Movie[]>([]);
 
   const handleBookmarkClick = (movie: Movie) => {
-    setSavedMovies((prevSavedMovies) => [...prevSavedMovies, movie]);
+    setMovies((prevSavedMovies) => [...prevSavedMovies, movie]);
+  };
+
+  const handleFilter = (filteredData: Movie[]) => {
+    console.log("Filtered Data Received:", filteredData);
+    setFilteredData(filteredData);
   };
 
   return (
     <div>
-      <Header />
+      <Header onFilter={handleFilter} />
       <Routes>
-        <Route path="/" element={<Recommended onBookmarkClick={handleBookmarkClick} />} />
-        <Route path="/bookmarks" element={<SavedMovies savedMovies={savedMovies} />} />
+        {/* Pass filteredData if available, otherwise use default data */}
+        <Route
+          path="/recomended"
+          element={
+            <Recommended
+              onBookmarkClick={handleBookmarkClick}
+              initialData={filteredData.length > 0 ? filteredData : data} // Use filteredData if available, otherwise use default data
+            />
+          }
+        />
+        <Route path="/bookmarks" element={<SavedMovies savedMovies={movies} />} />
       </Routes>
     </div>
   );
