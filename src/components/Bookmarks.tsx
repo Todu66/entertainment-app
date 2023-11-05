@@ -1,17 +1,18 @@
 import React from "react";
 
-interface Movie {
+interface SavedMoviesProps {
   name: string;
   year: string;
   category: string;
   category2: string;
   img: string;
+
 }
 
 const SavedMovies: React.FC<SavedMoviesProps> = ({ savedMovies }) => {
   return (
-    <div className="text-[#fff]">
-      {savedMovies.map((movie, index) => (
+    <div className="text-[#fff] p-3">
+      {savedMovies.map((movie, index: number) => (
         <div className="mb-3" key={index}>
           <img src={movie.img} alt={movie.name} />
           <h2>{movie.name}</h2>
