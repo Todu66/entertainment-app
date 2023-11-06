@@ -59,7 +59,7 @@ const Header = (props: HeaderProps) => {
       {/* // ---------------end of nav--------------- */}
 
       <input
-        className="w-4/5 text-[#fff] outline-none"
+        className="w-4/5 text-[#fff] outline-none p-1"
         placeholder="Search for movies or TV series"
         value={searchQuery}
         onChange={filterBySearch}
