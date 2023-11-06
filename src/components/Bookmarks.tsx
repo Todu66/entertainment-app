@@ -11,7 +11,7 @@ interface SavedMoviesProps {
 
 const SavedMovies: React.FC<SavedMoviesProps> = ({ savedMovies }) => {
   return (
-    <div className="text-[#fff] p-3">
+    <div className="text-[#fff] p-3 sm:grid grid-cols-2 place-items-center">
       {savedMovies.map((movie, index: number) => (
         <div className="mb-3" key={index}>
           <img src={movie.img} alt={movie.name} />
