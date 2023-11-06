@@ -30,7 +30,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className=" px-2">
       <Header onFilter={handleFilter} />
       <Routes>
         {/* Pass filteredData if available, otherwise use default data */}
@@ -49,11 +49,11 @@ function App() {
         />
         <Route 
           path="/movies"
-          element={<Movies />}
+          element={<Movies onBookmarkClick={handleBookmarkClick}/>}
         />
         <Route 
           path="/TvSeries"
-          element={<TvSeries />}
+          element={<TvSeries onBookmarkClick={handleBookmarkClick} />}
         />
       </Routes>
     </div>
