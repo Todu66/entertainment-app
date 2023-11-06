@@ -23,29 +23,35 @@ const Recommended: React.FC<RecommendedProps> = (props) => {
   }, [initialData]);
 
   if (loading) {
-    return <div className="flex justify-center items-center h-[100vh] text-white text-[50px]">
-      <FontAwesomeIcon icon={faSpinner} spinPulse />
-    </div>;
+    return (
+      <div className="flex justify-center items-center h-[100vh] text-white text-[50px]">
+        <FontAwesomeIcon icon={faSpinner} spinPulse />
+      </div>
+    );
   }
 
   return (
-    <div className="text-[#fff] p-3">
+    <div className="text-[#fff] p-3  sm:grid grid-cols-2 place-items-center">
       {/* Mapping through the data received via props */}
       {data.map((card, index) => (
-        <div className="w-44 mb-3" key={index}>
-          <div className="w-max">
+        <div className="relative w-44 mb-3" key={index}>
+          <div className="w-max relative">
             <img src={card.img} alt={card.name} />
-            <h2>{card.name}</h2>
-            <p>Year: {card.year}</p>
-            <p>Category: {card.category}</p>
-            <div className="flex items-center justify-between">
-              <p>Rating: {card.category2}</p>
+
+            <div className="absolute top-2 right-2 p-1 bg-transparent">
               <FontAwesomeIcon
-                className="cursor-pointer"
+                className="cursor-pointer "
                 onClick={() => onBookmarkClick(card)}
                 icon={faBookmark}
               />
             </div>
+
+            <div className="flex gap-2 text-base">
+              <p>{card.year}</p>
+              <p>{card.category}</p>
+              <p>{card.category2}</p>
+            </div>
+            <h2>{card.name}</h2>
           </div>
         </div>
       ))}
