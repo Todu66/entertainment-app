@@ -13,30 +13,25 @@ import data from "../../data";
 
 interface HeaderProps {
   onFilter: (filteredData: Movie[]) => void;
+  searchQuery: string;
+  filterBySearch: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Header = (props: HeaderProps) => {
-  const { onFilter } = props;
-  const [searchQuery, setSearchQuery] = useState("");
+const Header: React.FC<HeaderProps> = (props) => {
 
-  const filterBySearch = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const query = event.target.value;
+  const { onFilter, searchQuery, filterBySearch } = props;
 
-    let updatedList = [...data];
-    updatedList = updatedList.filter((item) => {
-      return item.name.toLowerCase().includes(query.toLowerCase());
-    });
 
-    onFilter(updatedList); // Pass filtered data back to parent component
-    setSearchQuery(query); // Optionally, update local state if needed
-  };
 
   return (
-    <div className="">
+    <div className="flex flex-col lg:w-12h-72 w-max-12 ">
       {/* -------------start of nav------------- */}
-      <nav className="flex flex-row justify-between p-2 bg-[#161D2F]">
+      <nav className="flex flex-row justify-between p-2 bg-[#161D2F] lg:flex-col">
+        <div>
         <img src={movie} alt="movie" />
-        <div className="flex gap-3 bg-[#161D2F]">
+
+        </div>
+        <div className="flex gap-3 bg-[#161D2F] lg:flex-col">
           <Link to="/Recommended">
             <img className="w-6 h-full" src={group} alt="group" />
           </Link>
@@ -59,7 +54,7 @@ const Header = (props: HeaderProps) => {
       {/* // ---------------end of nav--------------- */}
 
       <input
-        className="w-4/5 text-[#fff] outline-none p-1"
+        className="w-4/5 text-[#fff] outline-none p-1 lg: hidden"
         placeholder="Search for movies or TV series"
         value={searchQuery}
         onChange={filterBySearch}
