@@ -18,9 +18,9 @@ interface Movie {
 
 function App() {
   const [movies, setMovies] = useState<Movie[]>([]);
+  const [searchQuery, setSearchQuery] = useState('');
   const [filteredData, setFilteredData] = useState<Movie[]>(data); // Initialize filteredData with default data
-  // ---------------------------------------------------------
-  
+
   const handleBookmarkClick = (movie: Movie) => {
     setMovies((prevSavedMovies) => [...prevSavedMovies, movie]);
   };
@@ -30,8 +30,8 @@ function App() {
   };
 
   return (
-    <div className=" px-2">
-      <Header onFilter={handleFilter} />
+    <div className="px-2">
+      <Header onFilter={handleFilter} searchQuery={searchQuery} />
       <Routes>
         {/* Pass filteredData if available, otherwise use default data */}
         <Route
