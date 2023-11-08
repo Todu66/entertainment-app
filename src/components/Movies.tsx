@@ -15,7 +15,7 @@ const Movies: React.FC<MovieProps> = (props) => {
   const { onBookmarkClick} = props;
   const filteredMovies = data.filter(item => item.category === "Movie")
   return (
-    <div className='text-[#fff] p-3 sm:grid grid-cols-2 place-items-center'>
+    <div className='text-[#fff] p-3 sm:grid grid-cols-2 place-items-center lg:w-customwidth'>
       {filteredMovies.map((movie, index) => (
         <div className="w-44 mb-3" key={index}>
           <div className="w-max relative">
