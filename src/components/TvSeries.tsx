@@ -15,7 +15,7 @@ const TvSeries: React.FC<TvSeriesProps> = (props) => {
 
     const filteredTvSeries = data.filter(item => item.category === "TV Series")
     return (
-      <div className='text-[#fff] p-3 sm:grid grid-cols-2 max-md:grid-cols-3  place-items-center'>
+      <div className='text-[#fff] p-3 sm:grid grid-cols-2 max-md:grid-cols-3  place-items-center lg:w-customwidth'>
         {filteredTvSeries.map((movie, index) => (
           <div className="w-44 mb-3" key={index}>
             <div className="w-max relative">
