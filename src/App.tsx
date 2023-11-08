@@ -30,7 +30,7 @@ function App() {
   };
 
   return (
-    <div className="px-2">
+    <div className="px-2 lg:flex justify-between max-w-custommaxwidth ga-2">
       <Header onFilter={handleFilter} searchQuery={searchQuery} />
       <Routes>
         {/* Pass filteredData if available, otherwise use default data */}
