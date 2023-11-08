@@ -24,9 +24,9 @@ const Header: React.FC<HeaderProps> = (props) => {
 
 
   return (
-    <div className="flex flex-col lg:w-12h-72 w-max-12 ">
+    <div className="flex h-auto flex-col  lg:w-10 ">
       {/* -------------start of nav------------- */}
-      <nav className="flex flex-row justify-between p-2 bg-[#161D2F] lg:flex-col">
+      <nav className="flex flex-row justify-between p-2 items-center bg-[#161D2F] lg:flex-col lg:h-screen h-auto rounded-xl">
         <div>
         <img src={movie} alt="movie" />
 
@@ -36,10 +36,10 @@ const Header: React.FC<HeaderProps> = (props) => {
             <img className="w-6 h-full" src={group} alt="group" />
           </Link>
           <Link to="/movies">
-            <img className="w-6" src={rec} alt="group" />
+            <img className="w-6 h-full" src={rec} alt="group" />
           </Link>
           <Link to="/TvSeries">
-            <img className="w-6" src={tv} alt="group" />
+            <img className="w-6 h-full" src={tv} alt="group" />
           
           </Link>
           <div className="relative w-6 cursor-pointer">
