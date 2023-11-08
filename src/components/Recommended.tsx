@@ -40,15 +40,13 @@ const Recommended: React.FC<RecommendedProps> = (props) => {
   }
 
   return (
-    <div className="">
-      {!isMobile && (
-        <input
-        className="w-full mb-4 p-2 text-[#fff] outline-none bg-[#161D2F] placeholder-[#A3ADC2] rounded"
+    <div className="lg:w-customwidth">
+      <input
+        className="w-full mb-4 p-2 text-[#fff] outline-none bg-[#161D2F] placeholder-[#A3ADC2] rounded mt-3"
         placeholder="Search for movies or TV series"
         value={searchQuery}
         onChange={(e) => debouncedSetSearchQuery(e.target.value)}
       />
-      )}
 
       {/*  */}
       <div className="text-[#fff] p-3  sm:grid grid-cols-2 place-items-center custom:grid-cols-3 gap-8 lg: ">
