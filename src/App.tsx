@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Recommended from "./components/Recommended";
@@ -18,7 +18,7 @@ interface Movie {
 
 function App() {
   const [movies, setMovies] = useState<Movie[]>([]);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery] = useState('');
   const [filteredData, setFilteredData] = useState<Movie[]>(data); // Initialize filteredData with default data
 
   const handleBookmarkClick = (movie: Movie) => {
@@ -30,7 +30,7 @@ function App() {
   };
 
   return (
-    <div className="px-2 lg:flex justify-between max-w-custommaxwidth ga-2">
+    <div className="px-2 lg:flex justify-between max-w-custommaxwidth gap-2">
       <Header onFilter={handleFilter} searchQuery={searchQuery} />
       <Routes>
         {/* Pass filteredData if available, otherwise use default data */}
