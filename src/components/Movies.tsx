@@ -1,9 +1,8 @@
 import React from 'react'
-import data from "../../data"
-import {Movie } from "./Header"
-
+import { Movie } from "./movie";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
+import data from "../../data"
 
 
 interface MovieProps {
@@ -13,10 +12,10 @@ interface MovieProps {
 
 const Movies: React.FC<MovieProps> = (props) => {
   const { onBookmarkClick} = props;
-  const filteredMovies = data.filter(item => item.category === "Movie")
+  const filteredMovies = data.filter((item: Movie) => item.category === "Movie")
   return (
     <div className='text-[#fff] p-3 sm:grid grid-cols-2 place-items-center lg:w-customwidth'>
-      {filteredMovies.map((movie, index) => (
+      {filteredMovies.map((movie: Movie, index: number) => (
         <div className="w-44 mb-3" key={index}>
           <div className="w-max relative">
             <img src={movie.img} alt={movie.name} />
