@@ -2,8 +2,11 @@ import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
-import { Movie } from "./Header"; // Import the Movie interface
+import {Movie} from "./movie" // Import the Movie interface
 import _ from "lodash";
+
+
+
 
 interface RecommendedProps {
   onBookmarkClick: (movie: Movie) => void;
@@ -15,7 +18,7 @@ const Recommended: React.FC<RecommendedProps> = (props) => {
   const [data, setData] = useState<Movie[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
-  const isMobile = window.innerWidth <= 1024; // Define a threshold for mobile screens
+
 
   // Filter data based on searchQuery
   const debouncedSetSearchQuery = _.debounce((value: string) => {
