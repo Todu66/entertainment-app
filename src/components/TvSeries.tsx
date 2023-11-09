@@ -3,6 +3,7 @@ import data from "../../data"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
+import { Movie } from "./movie";
 
 interface TvSeriesProps {
   onBookmarkClick: (movie: Movie) => void;
@@ -13,10 +14,10 @@ interface TvSeriesProps {
 const TvSeries: React.FC<TvSeriesProps> = (props) => {
     const { onBookmarkClick} = props;
 
-    const filteredTvSeries = data.filter(item => item.category === "TV Series")
+    const filteredTvSeries = data.filter((item: Movie) => item.category === "TV Series")
     return (
       <div className='text-[#fff] p-3 sm:grid grid-cols-2 max-md:grid-cols-3  place-items-center lg:w-customwidth'>
-        {filteredTvSeries.map((movie, index) => (
+        {filteredTvSeries.map((movie: Movie, index: number) => (
           <div className="w-44 mb-3" key={index}>
             <div className="w-max relative">
               <img src={movie.img} alt={movie.name} />
