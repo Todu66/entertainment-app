@@ -1,8 +1,7 @@
 import React from 'react'
-import { Movie } from "./movie";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
-import data from "../../data"
+import data, { Movie } from "../../data"; // Update with the correct path to data.ts
 
 
 interface MovieProps {
